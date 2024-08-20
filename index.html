@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Party Time</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: #f0f8ff;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            color: #fff;
+            border-radius: 8px;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-top: 10px;
+        }
+        .contact-info {
+            margin-top: 20px;
+        }
+        .contact-info h2 {
+            color: #ff7e5f;
+            font-size: 1.8em;
+        }
+        .contact-info p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        footer {
+            text-align: center;
+            padding: 10px;
+            background: #333;
+            color: #fff;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+
+        /* Popup styles */
+        .popup {
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: opacity 0.3s ease;
+        }
+        .popup-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .popup-content ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .popup-content ul li {
+            margin: 10px 0;
+        }
+        .popup-content button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #ff7e5f;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .popup-content button:hover {
+            background-color: #feb47b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <!-- Logo image -->
+            <img src="https://png.pngtree.com/png-clipart/20210720/ourmid/pngtree-party-time-glow-text-png-image_3614992.jpg" alt="Party Time Logo" class="profile-img" aria-label="Party Time Logo">
+            <h1>Last Day</h1>
+            <p>Party Time</p>
+        </header>
+
+        <div class="contact-info">
+            <h2>Please Process It</h2>
+            <p>Let Us Have Some Preparation</p>
+            <p>Step 1: Please raise the computer volume</p>
+            <p>Step 2: Are you ready!</p>
+            <!-- Add new website link here -->
+            <p>Last step 》select music: <a href="#" id="showPopup" style="color: #ff7e5f;" aria-label="View Music List">View Music List</a></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Chan Jun Hong. All rights reserved.</p>
+    </footer>
+
+    <!-- Popup HTML -->
+    <div id="popup" class="popup" aria-hidden="true">
+        <div class="popup-content">
+            <h2>Music List</h2>
+            <ul>
+                <li>Song 1: 最后一次</li>
+                <li>Song 2: 最后一页</li>
+                <li>Song 3: 泪了</li>
+                <li>Song 4: 阿拉斯加海湾</li>                
+                <li>Song 5: 一个人想着一个人</li>
+                <li>Song 6: 偏爱</li>
+                <li>Song 7: 愛情怎麼喊停</li>
+                <li>Song 8: 不盡的星空</li>
+            </ul>
+            <button id="closePopup" aria-label="Close Music List">Close</button>
+        </div>
+    </div>
+
+    <script>
+        // Get the popup element and buttons
+        var popup = document.getElementById('popup');
+        var showPopup = document.getElementById('showPopup');
+        var closePopup = document.getElementById('closePopup');
+
+        // Show the popup
+        showPopup.addEventListener('click', function(event) {
+            event.preventDefault();
+            popup.style.display = 'flex';
+            popup.setAttribute('aria-hidden', 'false');
+        });
+
+        // Close the popup
+        closePopup.addEventListener('click', function() {
+            popup.style.display = 'none';
+            popup.setAttribute('aria-hidden', 'true');
+        });
+
+        // Close the popup when clicking outside of the popup content
+        window.addEventListener('click', function(event) {
+            if (event.target === popup) {
+                popup.style.display = 'none';
+                popup.setAttribute('aria-hidden', 'true');
+            }
+        });
+    </script>
+</body>
+</html>
